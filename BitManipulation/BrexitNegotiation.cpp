@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iterator>
 #include <iostream>
 #include <map>
@@ -25,7 +26,7 @@ bool solution(vector<vector<int>> &graph, vector<int> &result, vector<int> minut
     {
         if (indegree[i] == 0)
         {
-            queue.push({minutes[i], i});
+            queue.push({(minutes[i]) * (-1), i});
         }
     }
     while (!queue.empty())
@@ -43,6 +44,7 @@ bool solution(vector<vector<int>> &graph, vector<int> &result, vector<int> minut
             }
         }
     }
+    reverse(result.begin(), result.end());
     for (int d : indegree)
     {
         if (d != 0)
@@ -69,7 +71,7 @@ int main()
         {
             int topic;
             cin >> topic;
-            topics[topic - 1].push_back(i - 1);
+            topics[i - 1].push_back(topic - 1);
         }
     }
     
