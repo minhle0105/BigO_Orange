@@ -10,7 +10,7 @@ using namespace std;
 
 int V;
 
-bool solution(vector<vector<int>> &graph, vector<int> &result, vector<int> minutes)
+bool solution(vector<vector<int>> &graph, vector<int> &result, vector<int> &minutes)
 {
     vector<int> indegree(V);
     priority_queue<pair<int, int>> queue;
@@ -40,7 +40,7 @@ bool solution(vector<vector<int>> &graph, vector<int> &result, vector<int> minut
             indegree[*it]--;
             if (indegree[*it] == 0)
             {
-                queue.push({minutes[*it], *it});
+                queue.push({minutes[*it] * (-1), *it});
             }
         }
     }

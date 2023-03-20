@@ -5,7 +5,7 @@
 
 using namespace std;
 
-map<int, int> bfs(const vector<vector<int> > &graph, vector<int> &nodeIsInRange, int start, int d)
+map<int, int> bfs(const vector<vector<int> > &graph, vector<int> &nodeIsInRange, const int start, const int d)
 {
     queue<int> queue;
     vector<bool> visited(graph.size(), false);
@@ -39,7 +39,7 @@ map<int, int> bfs(const vector<vector<int> > &graph, vector<int> &nodeIsInRange,
     return levels;
 }
 
-int bfs(const vector<vector<int> > &graph, vector<int> &affectedBooks, int start, int d, int k)
+int bfs(const vector<vector<int> > &graph, vector<int> &affectedBooks, const int start, const int d, const int k)
 {
     queue<int> queue;
     vector<bool> visited(graph.size(), false);
@@ -144,4 +144,5 @@ int main()
         cout << res << endl;
         return 0;
     }
+
 }

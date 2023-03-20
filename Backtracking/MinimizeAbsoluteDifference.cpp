@@ -20,7 +20,7 @@ void minimize_fractions(pair<long, long> &fraction)
     minimize_fractions(fraction);
 }
 
-pair<long, long> get_absolute_diff(long n1, long d1, long n2, long d2)
+pair<long, long> get_absolute_diff(const long n1, const long d1, const long n2, const long d2)
 {
     pair<long, long> res;
     res.first = abs((n1 * d2) - (n2 * d1));

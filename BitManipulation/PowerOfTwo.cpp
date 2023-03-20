@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <bitset>
 
 using namespace std;
 
 bool isPowerOfTwo(int x)
 {
-    return (x & (-x)) == x;
+		return (x & (-x)) == x;
 }
 
-bool solution(vector<int> nums)
+bool solution(const vector<int> &nums)
 {
     for (int bit = 0; bit < 32; ++bit)
     {

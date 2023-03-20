@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool solution(vector<vector<int> > &graph, vector<pair<int, int> > &result, int V, int E)
+bool solution(vector<vector<int> > &graph, vector<pair<int, int> > &result, const int V, const int E)
 {
     vector<int> indegree(V);
     queue<int> queue;

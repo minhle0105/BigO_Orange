@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool dfs(const vector<vector<int> > &data, int src, vector<bool> &visited, vector<int> &orders, vector<bool> &has_dfs_ed)
+bool dfs(const vector<vector<int> > &data, const int src, vector<bool> &visited, vector<int> &orders, vector<bool> &has_dfs_ed)
 {
     visited[src] = true;
     for (int neighbor : data[src])
