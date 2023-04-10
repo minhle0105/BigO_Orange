@@ -3,24 +3,36 @@
 #include <vector>
 #include <numeric>
 
-void solution(std::vector<int> &nums, std::vector<int> &indexes)
+void solution(std::vector<int> &nums, std::vector<int> &current_sequence, int current_index)
 {
-    do
+    if (current_index == 6)
     {
-        std::vector<int> subset;
-        subset.reserve(6);
-        for (int i = 0; i < 6; ++i)
+        for (int num : current_sequence)
         {
-            subset.push_back(nums[indexes[i]]);
-        }
-        for (int i = 0; i < 6; ++i)
-        {
-            std::cout << subset[i] << " ";
+            std::cout << num << " ";
         }
         std::cout << std::endl;
+        return;
     }
-    while (next_combination(indexes.begin(), indexes.end()));
-    std::cout << "\n";
+    if (current_index == 0)
+    {
+        for (auto num : nums)
+        {
+            current_sequence[current_index] = num;
+            solution(nums, current_sequence, current_index + 1);
+        }
+    }
+    else
+    {
+        for (auto num : nums)
+        {
+            if (num > current_sequence[current_index - 1])
+            {
+                current_sequence[current_index] = num;
+                solution(nums, current_sequence, current_index + 1);
+            }
+        }
+    }
 }
 
 int main()
@@ -55,6 +67,8 @@ int main()
     }
     for (int test = 0; test < nTest; ++test)
     {
-        solution(test_cases_nums[test], test_cases_indexes[test]);
+        std::vector<int> current_sequence(6);
+        solution(test_cases_nums[test], current_sequence, 0);
+        std::cout << std::endl;
     }
 }
